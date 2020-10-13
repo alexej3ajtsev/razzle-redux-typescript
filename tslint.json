@@ -5,6 +5,10 @@
     "no-var-requires": false,
     "no-submodule-imports": false,
     "no-console": [false, "log", "error"],
-    "only-arrow-functions": false
+    "only-arrow-functions": false,
+    "no-trailing-whitespace": false,
+    "radix": false,
+    "prefer-const": false,
+    "array-type": false
   }
 }
