@@ -1,9 +1,9 @@
 import React from 'react';
-import { renderRoutes } from 'react-router-config';
+import { renderRoutes, RouteConfig } from 'react-router-config';
 import { Link } from 'react-router-dom';
 import './App.css';
 
-const App = ({route}) => (
+const App = ({ route }: { route: RouteConfig }) => (
   <div>
     <nav>
       <ul>

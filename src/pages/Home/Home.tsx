@@ -8,4 +8,4 @@ const Home = () => {
   )
 }
 
-export default { component: Home, loadData: async (params) => console.log('params >>>', params) };
+export default { component: Home, loadData: async (params: any) => console.log('params >>>', params) };

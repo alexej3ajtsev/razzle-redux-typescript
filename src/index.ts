@@ -2,8 +2,10 @@ import express from 'express';
 
 let app = require('./server').default;
 
+// @ts-ignore
 if (module.hot) {
-  module.hot.accept('./server', function() {
+  // @ts-ignore
+  module.hot.accept('./server', () => {
     console.log('🔁  HMR Reloading `./server`...');
     try {
       app = require('./server').default;
@@ -18,7 +20,9 @@ const port = process.env.PORT || 3000;
 
 export default express()
   .use((req, res) => app.handle(req, res))
+  // @ts-ignore
   .listen(port, function(err) {
+    // @ts-ignore
     if (err) {
       console.error(err);
       return;

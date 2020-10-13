@@ -1,10 +1,12 @@
+import { RouteConfig } from "react-router-config";
 import App from "../App";
 import About from "../pages/About/About";
 import Contacts from "../pages/Contacts/Contacts";
 import Home from "../pages/Home/Home";
 
-export default [
+const routes: RouteConfig[] = [
   {
+    // @ts-ignore
     component: App,
     routes: [
       {
@@ -23,3 +25,5 @@ export default [
     ]
   }
 ]
+
+export default routes

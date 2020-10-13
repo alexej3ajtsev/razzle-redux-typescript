@@ -1,24 +1,26 @@
-import App from './App';
 import React from 'react';
 import { StaticRouter } from 'react-router-dom';
-import express from 'express';
+import express, { Request, Response } from 'express';
 import { renderToString } from 'react-dom/server';
 import { renderRoutes, matchRoutes } from 'react-router-config';
 import routes from './routes';
 
+// @ts-ignore
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST);
 
 const server = express();
 server
   .disable('x-powered-by')
+  // @ts-ignore
   .use(express.static(process.env.RAZZLE_PUBLIC_DIR))
-  .get('/*', (req, res) => {
-    const context = {};
+  .get('/*', async (req: Request, res: Response) => {
+    const context: {[key: string]: string} = {};
     const matchedRoute = matchRoutes(routes, req.path);
     const promises = matchedRoute && matchedRoute
       .filter(r => r.route.loadData)
       .map(r => r.route.loadData)
-    console.log('promises >>>>', promises);
+
+    const data = await Promise.all(promises)
     const markup = renderToString(
       <StaticRouter context={context} location={req.path}>
         {renderRoutes(routes)}
