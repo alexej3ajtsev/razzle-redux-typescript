@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import testSlice, { asyncThunkActionMultipl } from '../../redux/slices/test';
+import styles from './style.module.css';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -12,7 +13,7 @@ const Home = () => {
 
   return (
     <div>
-      <h1>Home {value}</h1>
+      <h1 className={styles.header}>Home {value}</h1>
       <button onClick={() => handleIncrement()}>
         Increment
       </button>

@@ -18,7 +18,7 @@ export const asyncThunkActionMultipl = (num: number): AppThunk =>
       setTimeout(() => {
         dispatch(testSlice.actions.setValue(test * num));
         resolve()
-      }, 1000)
+      }, 500)
     })
   }
 export default testSlice
